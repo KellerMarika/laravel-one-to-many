@@ -5,10 +5,17 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StoreProjectRequest;
 use App\Http\Requests\Admin\UpdateProjectRequest;
+
+use App\Models\Level;
 use App\Models\Project;
+use App\Models\Type;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
+
+$levels_list = Level::all();
+$Types = Type::all();
 
 class ProjectController extends Controller
 {
@@ -20,7 +27,13 @@ class ProjectController extends Controller
     public function index()
     {
         $projects = Project::all();
-        return view('admin.projects.index', compact("projects"));
+        $levels = Level::all();
+        $types = Type::all();
+
+
+        return view('admin.projects.index', compact("projects", 'levels','types'));
+
+
     }
 
     /**
@@ -30,7 +43,10 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view('admin.projects.create');
+        $levels = Level::all();
+        $types = Type::all();
+
+        return view('admin.projects.create',compact('levels','types'));
     }
 
     /**
@@ -87,7 +103,9 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        return view("admin.projects.edit", compact("project"));
+        $levels = Level::all();
+        $types = Type::all();
+        return view("admin.projects.edit", compact("project", "levels","types"));
     }
 
     /**
@@ -108,7 +126,6 @@ class ProjectController extends Controller
 
             Storage::delete($project->cover_img);
         }
-
 
 
         $project->update([

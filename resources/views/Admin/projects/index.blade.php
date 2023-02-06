@@ -16,6 +16,8 @@
     </div>
 </div>
 
+    @dump($levels)
+    @dump($types)
     @dump($projects)
     <a href="{{ url('admin/projects/create') }}" class="btn btn-link">crea un nuovo progetto</a>
 @endsection

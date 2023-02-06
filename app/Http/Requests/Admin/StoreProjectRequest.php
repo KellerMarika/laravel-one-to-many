@@ -31,8 +31,9 @@ class StoreProjectRequest extends FormRequest
         return [
             /* validazione triste */
             'title' => 'required|max:80',
-            'category' => 'required|max:225',
-            'languages' => 'required|max:225',
+            'type_id' => 'exists:types,id',
+            'level_id' => 'exists:levels,id',
+     /*        'languages_id' => 'required|max:225', */
             'completed' => 'required|boolean',
             'cover_img' => 'image|max:1024',
             'description' => 'string',

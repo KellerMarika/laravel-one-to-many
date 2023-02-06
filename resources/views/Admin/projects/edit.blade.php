@@ -25,6 +25,7 @@
     @endif
 
 
+    @dump($project)
 
     {{-- QUESTA COSA è TROOOOOOOPPPO RIPTITIVA  --}}
 
@@ -49,16 +50,25 @@
                 @enderror
             </div>
 
-            {{-- category (dovrebbe poi diventare select) --}}
-            <div class="input-container pb-2 col-12 col-sm-8 col-md-4">
-                <label class="form-label">Categoria</label>
-                <input type="text" class="form-control 
-        @error('category') is-invalid @enderror" name="category"
-                    value="{{ old('category', $project->category) }}">
+            {{-- type_id (dovrebbe poi diventare select) --}}
+            <div class="input-container pb-2 col-12 col-md-4">
+                <label class="form-label" for="type_id">Difficoltà</label>
+                <select class="form-control selectpicker
+                        @error('type_id') is-invalid @enderror"
+                    id="type_id" name="type_id">
 
-                @error('category')
+
+
+                    @foreach ($types as $type)
+                        <option value="{{ $type->id }}"
+                            {{ old('type_id', $project->type_id) === $type->id ? 'selected' : '' }}>{{ $type->name }}</option>
+                    @endforeach
+
+                </select>
+
+                @error('type_id')
                     <div class="invalid-feedback">{{ $message }}</div>
-                @elseif(old('category'))
+                @elseif(old('type_id'))
                     <div class="valid-feedback">ok </div>
                 @enderror
             </div>
@@ -77,9 +87,9 @@
                             {{ old('completed', $project->completed) ? 'checked' : '' }}>
                     </div>
                 </div>
-                @error('type')
+                @error('completed')
                     <div class="invalid-feedback"> {{ $message }} </div>
-                @elseif(old('type'))
+                @elseif(old('completed'))
                     <div class="valid-feedback"> ok </div>
                 @enderror
             </div>
@@ -99,27 +109,23 @@
             </div>
 
 
-
-            {{-- funziona ma non visualizza!! --}}
-            {{--      @dump (old('level',$project->level)) --}}
-
-            {{-- level --}}
+            {{-- level_id --}}
             <div class="input-container pb-2 col-12 col-md-4">
-                <label class="form-label" for="level">Difficoltà</label>
+                <label class="form-label" for="level_id">Difficoltà</label>
                 <select class="form-control selectpicker
-                        @error('level') is-invalid @enderror"
-                    id="level" name="level">
-                    <option value=""></option>
-                    <option value="easy" {{ old('level', $project->level) === 'easy' ? 'selected' : '' }}>easy</option>
-                    <option value="medium" {{ old('level', $project->level) === 'medium' ? 'selected' : '' }}>medium
-                    </option>
-                    <option value="hard" {{ old('level', $project->level) === 'hard' ? 'selected' : '' }}>hard</option>
-                    <option value="@die" {{ old('level', $project->level) === '@die' ? 'selected' : '' }}>@die</option>
+                        @error('level_id') is-invalid @enderror"
+                    id="level_id" name="level_id">
+
+                    @foreach ($levels as $level)
+                        <option value="{{ $level->id }}"
+                            {{ old('level_id', $project->level_id) === $level->id ? 'selected' : '' }}>{{ $level->name }}
+                        </option>
+                    @endforeach
                 </select>
 
-                @error('level')
+                @error('level_id')
                     <div class="invalid-feedback">{{ $message }}</div>
-                @elseif(old('level'))
+                @elseif(old('level_id'))
                     <div class="valid-feedback">ok </div>
                 @enderror
             </div>
@@ -153,6 +159,20 @@
                 @enderror
             </div>
 
+            {{-- link --}}
+            <div class="input-container pb-2 col-12 ">
+                <label class="form-label">github url</label>
+                <input type="url"
+                    class="form-control 
+            @error('languages') is-invalid @elseif(old('github_link')) is-valid @enderror"
+                    name="github_link" value="{{ $errors->has('github_link') ? '' : old('github_link') }}">
+
+                @error('github_link')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @elseif(old('github_link'))
+                    <div class="valid-feedback">ok </div>
+                @enderror
+            </div>
 
             {{-- opzioni --}}
             <div class="p-3">

@@ -9,10 +9,12 @@ class Project extends Model
 {
     use HasFactory;
     protected $fillable = [
+     
+        'type_id',
+        'level_id',
+ /*        'languages_id', */
+
         'title',
-        'type',
-        'languages',
-        'level',
         'completed',
         'cover_img',
         'description',
@@ -21,10 +23,10 @@ class Project extends Model
 
 
 public function type(){
-    retutn $this->belongsTo(Type::class);
+    return $this->belongsTo(Type::class);
 }
 public function level(){
-    retutn $this->belongsTo(Level::class);
+    return $this->belongsTo(Level::class);
 }
 
 
