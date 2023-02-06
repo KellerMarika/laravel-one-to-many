@@ -49,16 +49,16 @@
                 @enderror
             </div>
 
-            {{-- category (dovrebbe poi diventare select) --}}
+            {{-- type (dovrebbe poi diventare select) --}}
             <div class="input-container pb-2 col-12 col-sm-8 col-md-4">
-                <label class="form-label">Categoria</label>
+                <label class="form-label">Tipologia</label>
                 <input type="text" class="form-control 
-        @error('category') is-invalid @enderror" name="category"
-                    value="{{ old('category', $project->category) }}">
+        @error('type') is-invalid @enderror" name="type"
+                    value="{{ old('type', $project->type) }}">
 
-                @error('category')
+                @error('type')
                     <div class="invalid-feedback">{{ $message }}</div>
-                @elseif(old('category'))
+                @elseif(old('type'))
                     <div class="valid-feedback">ok </div>
                 @enderror
             </div>
@@ -77,9 +77,9 @@
                             {{ old('completed', $project->completed) ? 'checked' : '' }}>
                     </div>
                 </div>
-                @error('type')
+                @error('completed')
                     <div class="invalid-feedback"> {{ $message }} </div>
-                @elseif(old('type'))
+                @elseif(old('completed'))
                     <div class="valid-feedback"> ok </div>
                 @enderror
             </div>
@@ -114,7 +114,6 @@
                     <option value="medium" {{ old('level', $project->level) === 'medium' ? 'selected' : '' }}>medium
                     </option>
                     <option value="hard" {{ old('level', $project->level) === 'hard' ? 'selected' : '' }}>hard</option>
-                    <option value="@die" {{ old('level', $project->level) === '@die' ? 'selected' : '' }}>@die</option>
                 </select>
 
                 @error('level')

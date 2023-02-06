@@ -41,17 +41,22 @@
                 @enderror
             </div>
 
-            {{-- category (dovrebbe poi diventare select) --}}
-            <div class="input-container pb-2 col-12 col-sm-8 col-md-4">
-                <label class="form-label">Categoria</label>
-                <input type="text"
-                    class="form-control 
-                    @error('category') is-invalid @elseif(old('category')) is-valid @enderror"
-                    name="category" value="{{ $errors->has('category') ? '' : old('category') }}">
 
-                @error('category')
+
+            {{-- type --}}
+            <div class="input-container pb-2 col-12 col-md-4">
+                <label class="form-label" for="type">Difficoltà</label>
+                <select
+                    class="form-control
+                    @error('type') is-invalid @elseif(old('type')) is-valid @enderror"
+                    id="type" name="type">
+                    <option value="easy" {{ old('type') ? 'selected' : '' }}>easy</option>
+                    <option value="medium" {{ old('type') ? 'selected' : '' }}>medium</option>
+                    <option value="hard"{{ old('type') ? 'selected' : '' }}>hard</option>
+                </select>
+                @error('type')
                     <div class="invalid-feedback">{{ $message }}</div>
-                @elseif(old('category'))
+                @elseif(old('type'))
                     <div class="valid-feedback">ok </div>
                 @enderror
             </div>
@@ -101,10 +106,9 @@
                     class="form-control
                     @error('level') is-invalid @elseif(old('level')) is-valid @enderror"
                     id="level" name="level">
-                    <option value="easy">easy</option>
-                    <option value="medium">medium</option>
-                    <option value="hard">hard</option>
-                    <option value="@die" selected>@die</option>
+                    <option value="easy" {{ old('level') ? 'selected' : '' }}>easy</option>
+                    <option value="medium" {{ old('level') ? 'selected' : '' }}>medium</option>
+                    <option value="hard"{{ old('level') ? 'selected' : '' }}>hard</option>
                 </select>
                 @error('level')
                     <div class="invalid-feedback">{{ $message }}</div>
