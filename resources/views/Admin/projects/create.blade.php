@@ -41,17 +41,23 @@
                 @enderror
             </div>
 
-            {{-- category (dovrebbe poi diventare select) --}}
-            <div class="input-container pb-2 col-12 col-sm-8 col-md-4">
-                <label class="form-label">Categoria</label>
-                <input type="text"
-                    class="form-control 
-                    @error('category') is-invalid @elseif(old('category')) is-valid @enderror"
-                    name="category" value="{{ $errors->has('category') ? '' : old('category') }}">
 
-                @error('category')
+            {{-- type --}}
+            <div class="input-container pb-2 col-12 col-md-4">
+                <label class="form-label" for="type_id">Tipologia</label>
+                <select
+                    class="form-control
+                    @error('type_id') is-invalid @elseif(old('type_id')) is-valid @enderror"
+                    id="type_id" name="type_id">
+
+                    @foreach ($types as $type)
+                        <option value="{{ $type->id }}" {{ old('type_id') ? 'selected' : '' }}>{{ $type->name }}</option>
+                    @endforeach
+
+                </select>
+                @error('type_id')
                     <div class="invalid-feedback">{{ $message }}</div>
-                @elseif(old('category'))
+                @elseif(old('type_id'))
                     <div class="valid-feedback">ok </div>
                 @enderror
             </div>
@@ -94,42 +100,28 @@
                 @enderror
             </div>
 
-            {{-- level --}}
+            {{-- level_id --}}
             <div class="input-container pb-2 col-12 col-md-4">
-                <label class="form-label" for="level">Difficoltà</label>
+                <label class="form-label" for="level_id">Difficoltà</label>
                 <select
                     class="form-control
-                    @error('level') is-invalid @elseif(old('level')) is-valid @enderror"
-                    id="level" name="level">
-                    <option value="easy">easy</option>
-                    <option value="medium">medium</option>
-                    <option value="hard">hard</option>
-                    <option value="@die" selected>@die</option>
+                    @error('level_id') is-invalid @elseif(old('level_id')) is-valid @enderror"
+                    id="level_id" name="level_id">
+
+                    @foreach ($levels as $level)
+                        <option value="{{ $level->id }}" {{ old('level_id') ? 'selected' : '' }}>{{ $level->name }}
+                        </option>
+                    @endforeach
+
+
                 </select>
-                @error('level')
+                @error('level_id')
                     <div class="invalid-feedback">{{ $message }}</div>
-                @elseif(old('level'))
+                @elseif(old('level_id'))
                     <div class="valid-feedback">ok </div>
                 @enderror
             </div>
 
-
-
-            {{-- cove
-            {{-- level (dovrebbe poi diventare select) --}}
-            {{--   <div class="input-container pb-2 col-12 col-sm-8 col-md-4">
-                <label class="form-label" id="">Difficoltà</label>
-                <input type="text"
-                    class="form-control 
-                    @error('level') is-invalid @elseif(old('level')) is-valid @enderror"
-                    name="level" value="{{ $errors->has('level') ? '' : old('level') }}">
-
-                @error('level')
-                    <div class="invalid-feedback">{{ $message }}</div>
-                @elseif(old('level'))
-                    <div class="valid-feedback">ok </div>
-                @enderror
-            </div> --}}
 
 
 

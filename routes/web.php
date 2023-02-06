@@ -3,6 +3,8 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProjectController;
+use App\Http\Controllers\Admin\TypeController;
+use App\Http\Controllers\Admin\LevelController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -34,6 +36,8 @@ group(function () {
 
   /* tutte le rotte progetti vengono gestite tramite amministratore */
     Route::resource('projects', ProjectController::class);
+    Route::resource('types', TypeController::class);
+    Route::resource('levels', LevelController::class);
 });
 
 
