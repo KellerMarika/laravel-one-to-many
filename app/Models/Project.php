@@ -23,6 +23,9 @@ class Project extends Model
 public function type(){
     retutn $this->belongsTo(Type::class);
 }
+public function level(){
+    retutn $this->belongsTo(Level::class);
+}
 
 
 }
