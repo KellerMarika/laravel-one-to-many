@@ -10,9 +10,9 @@ class Project extends Model
     use HasFactory;
     protected $fillable = [
      
-        'type',
-        'level',
-        'languages',
+        'type_id',
+        'level_id',
+ /*        'languages_id', */
 
         'title',
         'completed',
