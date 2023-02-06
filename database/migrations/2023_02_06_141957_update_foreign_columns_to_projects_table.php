@@ -16,10 +16,10 @@ return new class extends Migration {
 
             /* foreing */
             /* 1/many */
-            $table->unsignedBigInteger('type_id')->nullable();
+            $table->unsignedBigInteger('type_id')->nullable()->after('cover_img');
             $table->foreign('type_id')->references('id')->on('types');
 
-            $table->unsignedBigInteger('level_id')->nullable();
+            $table->unsignedBigInteger('level_id')->nullable()->after('type_id');
             $table->foreign('level_id')->references('id')->on('levels');
 
 
@@ -48,9 +48,9 @@ return new class extends Migration {
         Schema::table('projects', function (Blueprint $table) {
 
            $table->dropForeign("projects_type_id_foreign");
-           $table->dropColumn("type_id")
+           $table->dropColumn("type_id");
            $table->dropForeign("projects_level_id_foreign");
-           $table->dropColumn("level_id")
+            $table->dropColumn("level_id");
         });
     }
 };
