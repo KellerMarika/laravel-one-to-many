@@ -22,7 +22,6 @@ return new class extends Migration
             $table->string('password');
             $table->boolean('is_superadmin')->default(false);
 
-
             $table->string('profile_img')->nullable();
             $table->string('cover_img')->nullable();
             $table->string('primary_color')->nullable()->default('hsl(276, 36%, 40%)');
