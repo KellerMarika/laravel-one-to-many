@@ -47,7 +47,10 @@ return new class extends Migration {
     {
         Schema::table('projects', function (Blueprint $table) {
 
-         /*    $table->dropForeign("nome_indice_assegnato_alla_relazione"); */
+           $table->dropForeign("projects_type_id_foreign");
+           $table->dropColumn("type_id")
+           $table->dropForeign("projects_level_id_foreign");
+           $table->dropColumn("level_id")
         });
     }
 };
