@@ -53,6 +53,7 @@ $dark_color_dark: darken($dark_color, 5%);
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&display=swap');
 
 
+
 /*******  MIXIN ********************************************/
 
 /***** MEDIA  QUERIES *****************************************/
@@ -203,6 +204,12 @@ nav {
          }
       }
    }
+}
+
+/* ADMIN/PROJECTS */
+.projects-index.container {
+
+
 }
 
 .dashboard-container {
