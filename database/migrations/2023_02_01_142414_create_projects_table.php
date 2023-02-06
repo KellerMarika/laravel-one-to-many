@@ -16,14 +16,12 @@ return new class extends Migration {
             $table->id();
 
 
-
             /* infos */
             $table->string('title', 80);
             $table->boolean('completed')->default(true);
             $table->text('description');
             $table->string('github_link');
             $table->string('cover_img')->nullable();
-
             $table->timestamps();
 
         });
