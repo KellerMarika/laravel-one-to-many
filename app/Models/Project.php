@@ -10,7 +10,7 @@ class Project extends Model
     use HasFactory;
     protected $fillable = [
         'title',
-        'category',
+        'type',
         'languages',
         'level',
         'completed',
@@ -18,4 +18,11 @@ class Project extends Model
         'description',
         'github_link',
     ];
+
+
+public function type(){
+    retutn $this->belongsTo(Type::class);
+}
+
+
 }
