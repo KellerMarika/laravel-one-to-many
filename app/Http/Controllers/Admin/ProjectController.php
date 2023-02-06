@@ -133,9 +133,6 @@ class ProjectController extends Controller
             'cover_img' => $path ?? $project->cover_img /* lo faccio a monitor di mettere un'immagine di default senno salverei sempre cover_img 404 nf nel db */
         ]);
 
-
-        $project->update($data);
-
         return redirect()->route('admin.projects.show', $project->id); /* ->with([
         'status'=>'success',
         'message'=>'hai creato un nuovo progetto: #'. $project->id
