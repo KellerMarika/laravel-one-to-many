@@ -8,53 +8,42 @@
 
 
 
-    <section>
-        
+    <section class="my-5">
+
         <div class="projects-index container">
-            <h2>All projects:</h2>
+            <h1 class="pb-3 text-uppercase">All projects:</h1>
             <div class="card-columns">
+                <a href="{{ route('admin.projects.create') }}" class="add-project-btn card my-4 p-3 text-uppercase  overflow-hidden shadow">
+                    <h2 class=" m-0"><i class ="fa fa-plus"></i> add new</h2>
+                </a>
                 @foreach ($projects as $project)
-                {{--     <div class="col-md-4"> --}}
-                        <div class="card   p-3overflow-hidden shadow">
-                            <div
-                                class="card-id position-absolute rounded-circle d-flex justify-content-center align-items-center fs-3 fw-bold m-1 end-0 top-0 me-2">
-                                {{ $project->id }}</div>
+                    <a href="{{ route('admin.projects.show', $project->id) }}" class="card  my-4 overflow-hidden shadow">
 
-                            <img src="{{ asset('storage/' . $project->cover_img) }}" class="card-img-top"
-                                alt="{{ $project->cover_img }}">
-                            <div class="card-body ">
+                        <div
+                            class="card-id position-absolute rounded-circle d-flex justify-content-center align-items-center fs-3 fw-bold m-1 end-0 top-0 me-4 mt-4 me-md-3 mt-md-2">
+                            {{ $project->id }}</div>
 
-                                <div class="project-info">
+                        <img src="{{ asset('storage/' . $project->cover_img) }}" class="card-img-top "
+                            alt="{{ $project->cover_img }}">
+                        <div class="card-body p-0">
 
-                                    <div class="d-flex shadow-sm">
-                                        <h2 class="card-title flex-fill text-uppercase">{{ $project->title }}</h2>
-                                        <small class="fw-bold text-end">
-                                            <span class="type">{{ $project->type->name }}</span><br>
-                                            <span class="level">{{ $project->level->name }}</span>
-                                        </small>
+                            <h2 class="card-title flex-fill text-uppercase shadow-sm py-2 px-3">{{ $project->title }}
+                            </h2>
 
-                                    </div>
+                            <small class="fw-bold d-flex justify-content-between py-2 px-3">
+                                <span class="type">{{ $project->type->name }}</span><br>
+                                <span class="level">{{ $project->level->name }}</span>
+                            </small>
 
-
-                                    <p class="card-text pt-3">{{ $project->description }}<small
-                                            class="d-block text-end p-1 border-top">last update:
-                                            {{ $project->updated_at }}</small></p>
-
-
-                                    <a href="#" class="btn mr-2"><i class="fas fa-link"></i> leave Comment!</a>
-                                    <a href="{{ $project->github_link }}" class="btn "><i class="fab fa-github"></i>
-                                        Github</a>
-                                </div>
-
-                            </div>
                         </div>
-                    {{-- </div> --}}
+
+                    </a>
                 @endforeach
             </div>
         </div>
     </section>
 
-{{--     @foreach ($types as $type)
+    {{--     @foreach ($types as $type)
         <section>
             <div class="container">
                 <h2>{{ $type->name }} Projects:</h2>
@@ -73,7 +62,7 @@
     @endforeach --}}
 
 
-{{--     @dump($levels)
+    {{--     @dump($levels)
     @dump($types)
     @dump($projects) --}}
     <a href="{{ url('admin/projects/create') }}" class="btn btn-link">crea un nuovo progetto</a>

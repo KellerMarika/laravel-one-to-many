@@ -59,52 +59,11 @@ $dark_color_dark: darken($dark_color, 5%);
 
 /***** MEDIA  QUERIES *****************************************/
 
-
-/* @mixin xxl {
-   @media screen and (min-width: 1400px) {
-      @content
-   }
-}
-
-;
-
-@mixin xl {
-   @media screen and (min-width: 1200px) {
-      @content
-   }
-}
-
-;
-
-@mixin lg {
-   @media screen and (min-width: 992px) {
-      @content
-   }
-}
-
-;
-
-@mixin md {
-   @media screen and (min-width: 768px) {
-      @content
-   }
-}
-
-;
-
-@mixin sm {
-   @media screen and (min-width: 576px) {
-      @content
-   }
-}
-
-; */
-
 /* visualizzare */
 q {
    border: 1px solid rgb(216, 127, 228);
 
-   @include media-breakpoint-up(xs)  {
+   @include media-breakpoint-up(xs) {
       border: 1px solid rgb(9, 0, 128);
    }
 
@@ -125,15 +84,11 @@ q {
    }
 }
 
-
 /**********************************************/
 
 body {
    font-family: 'Raleway', sans-serif;
    color: $light_color;
-
-
-
 
    /**** JUMBOTRON ******************************************/
 
@@ -147,7 +102,6 @@ body {
          /*   font-weight: 400; */
       }
    }
-
 }
 
 /***** NAVBAR ******/
@@ -164,7 +118,6 @@ nav {
       }
 
       * {
-
          stroke: $primary_color_dark ;
          stroke-width: 6;
       }
@@ -202,34 +155,50 @@ nav {
 
 /* ADMIN/PROJECTS */
 .projects-index.container {
+
    .card-columns {
-      @include media-breakpoint-only(lg) {
+      @include media-breakpoint-up(md) {
+         column-count: 3;
+      }
+
+      @include media-breakpoint-up(xl) {
          column-count: 4;
       }
 
-      @include media-breakpoint-only(xl) {
-         column-count: 5;
-      }
-   }
+      a.card {
+         text-decoration: none;
 
-   .card {
-      .card-img-top {
-         max-height: 300px;
+         &.add-project-btn {
+            background-color: transparentize($primary_color_light, .5);
+            color: $secondary_color;
+            border: 2px dashed $secondary_color;
+         }
+
+         .card-img-top {
+            max-height: 300px;
+         }
+
+         .card-id {
+            width: 60px;
+            aspect-ratio: 1/1;
+            border: 3px solid $primary_color;
+            color: $primary_color_dark;
+            font-family: 'Raleway', sans-serif;
+            transform: scale(200%) translateX(10px) translateY(-10px);
+            z-index: 1;
+            opacity: .8;
+
+            @include media-breakpoint-only(md) {
+               width: 50px;
+               transform: translateX(10px) translateY(-10px);
+            }
+
+            @include media-breakpoint-up(lg) {
+               transform: scale(150%) translateX(10px) translateY(-10px);
+            }
+         }
       }
 
-      .card-id {
-         width: 60px;
-         aspect-ratio: 1/1;
-         border: 3px solid $secondary_color;
-         color: $secondary_color;
-         font-family: 'Raleway', sans-serif;
-         transform: scale(200%);
-         z-index: 1;
-      }
-
-      .project-info {
-         z-index: 2;
-      }
    }
 }
 
@@ -266,13 +235,9 @@ nav {
    }
 }
 
-
-
-
 /***** FOOTER ******/
 
 footer {
-
 
    /* waves */
    .ocean {
