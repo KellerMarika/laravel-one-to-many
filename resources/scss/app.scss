@@ -99,8 +99,8 @@ $dark_color_dark: darken($dark_color, 5%);
 
 ;
 
-* {
-
+/* visualizzare */
+q {
    border: 1px solid rgb(216, 127, 228);
 
    @include sm {
@@ -110,7 +110,6 @@ $dark_color_dark: darken($dark_color, 5%);
    @include md {
       border: 1px solid rgb(0, 128, 128);
    }
-
 
    @include lg {
       border: 1px solid rgb(125, 236, 91);
@@ -123,8 +122,6 @@ $dark_color_dark: darken($dark_color, 5%);
    @include xxl {
       border: 1px solid rgb(255, 0, 119);
    }
-
-
 }
 
 
@@ -157,10 +154,6 @@ nav {
    background: linear-gradient(0deg, $secondary_color 10%, $secondary_color_dark 100%);
    font-family: 'Cinzel', serif;
    font-weight: 500;
-
-   /*  & * {
-   border: 1px solid rgb(0, 255, 34);
- }     */
 
    .keller-logo {
       transform: scale(120%);
@@ -209,9 +202,26 @@ nav {
 /* ADMIN/PROJECTS */
 .projects-index.container {
 
-
+   .card {
+      .card-img-top {
+         max-height: 300px;
+      }
+      .card-id {
+         width: 60px;
+         aspect-ratio: 1/1;
+         border: 3px solid $secondary_color;
+         color: $secondary_color;
+         font-family: 'Raleway', sans-serif;
+         transform: scale(200%);
+         z-index: 1;
+      }
+      .project-info {
+         z-index: 2;
+      }
+   }
 }
 
+/* DASHBOARD */
 .dashboard-container {
    height: 100vh;
    width: 100vw;

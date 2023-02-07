@@ -14,15 +14,37 @@
             <div class="row">
                 @foreach ($projects as $project)
                     <div class="col-md-4">
-                        <div class="card" style="width: 18rem;">
-                            {{$project->id}}
-                            <img src="{{ asset('storage/' . $project->cover_img) }}" class="card-img-top" alt="{{$project->cover_img}}">
-                            <div class="card-body">
-                                <h5 class="card-title">{{$project->title}}</h5>
-                                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                                <p class="card-text">{{$project->description}}</p>
-                                <a href="#" class="btn mr-2"><i class="fas fa-link"></i> Visit Site</a>
-                                <a href="{{$project->github_link}}" class="btn "><i class="fab fa-github"></i> Github</a>
+                        <div class="card overflow-hidden shadow">
+                            <div
+                                class="card-id position-absolute rounded-circle d-flex justify-content-center align-items-center fs-3 fw-bold m-1 end-0 top-0 me-2">
+                                {{ $project->id }}</div>
+
+                            <img src="{{ asset('storage/' . $project->cover_img) }}" class="card-img-top"
+                                alt="{{ $project->cover_img }}">
+                            <div class="card-body ">
+
+                                <div class="project-info">
+
+                                    <div class="d-flex shadow-sm">
+                                        <h2 class="card-title flex-fill text-uppercase">{{ $project->title }}</h2>
+                                        <small class="fw-bold text-end">
+                                            <span class="type">{{ $project->type->name }}</span><br>
+                                            <span class="level">{{ $project->level->name }}</span>
+                                        </small>
+
+                                    </div>
+
+
+                                    <p class="card-text pt-3">{{ $project->description }}<small
+                                            class="d-block text-end p-1 border-top">last update:
+                                            {{ $project->updated_at }}</small></p>
+
+
+                                    <a href="#" class="btn mr-2"><i class="fas fa-link"></i> leave Comment!</a>
+                                    <a href="{{ $project->github_link }}" class="btn "><i class="fab fa-github"></i>
+                                        Github</a>
+                                </div>
+
                             </div>
                         </div>
                     </div>
