@@ -51,6 +51,7 @@
 
 
                 <div class="users-options px-3 py-4 ">
+                    
                     <h6>user options</h6>
                     <ul class="list-group ">
                         <li class="list-group-item bg-transparent">email</li>
@@ -63,10 +64,12 @@
             <main class=" w-100 rounded-4 m-2">
                 <nav class="d-flex">
                     <h5>nav</h5>
+                    @yield('content')
                     
                 </nav>
                 <div class="row"></div>
 
+              
             </main>
 
 

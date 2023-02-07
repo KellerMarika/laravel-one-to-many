@@ -1,10 +1,5 @@
 @extends('layouts.app')
 
-{{--        'title' => 'requred|min: 80|max:225',
-            'type' => 'requred|max:225',
-            'completed' => 'boolean',
-            'img' => 'string',
-            'description' => 'string' --}}
 
 @section('content')
     {{-- solo il superadmin, se è solo loggato può o contattarti per una collaborazione --}}
@@ -135,11 +130,11 @@
             <div class="input-container pb-2">
                 <label class="form-label">IMMAGINE</label>
                 <input type="file" class="form-control
-                    @error('img')is-invalid  @enderror"
+                    @error('cover_img') is-invalid  @enderror"
                     name="cover_img">
 
 
-                @error('img')
+                @error('cover_img')
                     <div class="invalid-feedback">{{ $message }} </div>
                 @enderror
             </div>

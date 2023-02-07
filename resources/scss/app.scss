@@ -41,7 +41,6 @@ $dark_color_dark: darken($dark_color, 5%);
    $dark: $dark_color,
 );
 
-
 /*****  FONTS  *****************************************/
 // font-family: 'Solitreo', cursive;
 /* @import url('https://fonts.googleapis.com/css2?family=Solitreo&display=swap'); */
@@ -52,89 +51,44 @@ $dark_color_dark: darken($dark_color, 5%);
 //font-family: 'Cinzel', serif;
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&display=swap');
 
+@import 'bootstrap/scss/_functions';
+@import 'bootstrap/scss/_variables';
+@import 'bootstrap/scss/mixins/_breakpoints';
 
 /*******  MIXIN ********************************************/
 
 /***** MEDIA  QUERIES *****************************************/
 
-
-@mixin xxl {
-   @media screen and (min-width: 1400px) {
-      @content
-   }
-}
-
-;
-
-@mixin xl {
-   @media screen and (min-width: 1200px) {
-      @content
-   }
-}
-
-;
-
-@mixin lg {
-   @media screen and (min-width: 992px) {
-      @content
-   }
-}
-
-;
-
-@mixin md {
-   @media screen and (min-width: 768px) {
-      @content
-   }
-}
-
-;
-
-@mixin sm {
-   @media screen and (min-width: 576px) {
-      @content
-   }
-}
-
-;
-
-* {
-
+/* visualizzare */
+q {
    border: 1px solid rgb(216, 127, 228);
 
-   @include sm {
+   @include media-breakpoint-up(xs) {
       border: 1px solid rgb(9, 0, 128);
    }
 
-   @include md {
+   @include media-breakpoint-up(sm) {
       border: 1px solid rgb(0, 128, 128);
    }
 
-
-   @include lg {
+   @include media-breakpoint-up(lg) {
       border: 1px solid rgb(125, 236, 91);
    }
 
-   @include xl {
+   @include media-breakpoint-up(xl) {
       border: 1px solid rgb(255, 174, 0);
    }
 
-   @include xxl {
+   @include media-breakpoint-up(xxl) {
       border: 1px solid rgb(255, 0, 119);
    }
-
-
 }
-
 
 /**********************************************/
 
 body {
    font-family: 'Raleway', sans-serif;
    color: $light_color;
-
-
-
 
    /**** JUMBOTRON ******************************************/
 
@@ -148,7 +102,6 @@ body {
          /*   font-weight: 400; */
       }
    }
-
 }
 
 /***** NAVBAR ******/
@@ -156,10 +109,6 @@ nav {
    background: linear-gradient(0deg, $secondary_color 10%, $secondary_color_dark 100%);
    font-family: 'Cinzel', serif;
    font-weight: 500;
-
-   /*  & * {
-   border: 1px solid rgb(0, 255, 34);
- }     */
 
    .keller-logo {
       transform: scale(120%);
@@ -169,7 +118,6 @@ nav {
       }
 
       * {
-
          stroke: $primary_color_dark ;
          stroke-width: 6;
       }
@@ -205,6 +153,56 @@ nav {
    }
 }
 
+/* ADMIN/PROJECTS */
+.projects-index.container {
+
+   .card-columns {
+      @include media-breakpoint-up(md) {
+         column-count: 3;
+      }
+
+      @include media-breakpoint-up(xl) {
+         column-count: 4;
+      }
+
+      a.card {
+         text-decoration: none;
+
+         &.add-project-btn {
+            background-color: transparentize($primary_color_light, .5);
+            color: $secondary_color;
+            border: 2px dashed $secondary_color;
+         }
+
+         .card-img-top {
+            max-height: 300px;
+         }
+
+         .card-id {
+            width: 60px;
+            aspect-ratio: 1/1;
+            border: 3px solid $primary_color;
+            color: $primary_color_dark;
+            font-family: 'Raleway', sans-serif;
+            transform: scale(200%) translateX(10px) translateY(-10px);
+            z-index: 1;
+            opacity: .8;
+
+            @include media-breakpoint-only(md) {
+               width: 50px;
+               transform: translateX(10px) translateY(-10px);
+            }
+
+            @include media-breakpoint-up(lg) {
+               transform: scale(150%) translateX(10px) translateY(-10px);
+            }
+         }
+      }
+
+   }
+}
+
+/* DASHBOARD */
 .dashboard-container {
    height: 100vh;
    width: 100vw;
@@ -231,19 +229,15 @@ nav {
          }
       }
 
-      @include md {
+      @include media-breakpoint-up(md) {
          width: 200px;
       }
    }
 }
 
-
-
-
 /***** FOOTER ******/
 
 footer {
-
 
    /* waves */
    .ocean {
