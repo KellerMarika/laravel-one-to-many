@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @php
-  $title = 'MarikaKeller.dev HOME';
+    $title = 'MarikaKeller.dev HOME';
 @endphp
 
 @section('title', $title)
@@ -27,4 +27,3 @@
     @include('profile.partials.jumbotron')
 
 @endsection
-        
