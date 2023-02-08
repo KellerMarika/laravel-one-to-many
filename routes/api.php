@@ -20,6 +20,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
-Route::post("world", [PathController::class, "uploadWorldMap"])->name("phat");
-
-Route::resource('paths', PathController::class);
+Route::post("world", [PathController::class, "uploadWorldMap"])->name("path");

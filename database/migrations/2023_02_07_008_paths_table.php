@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('paths', function (Blueprint $table) {
             $table->id();
-            $table->string("title");
-            $table->string("code");
+            $table->string("title")->nullable();
+            $table->string("code")->nullable();
             $table->text("path");
 
             $table->timestamps();
