@@ -19,19 +19,16 @@ class PathsTableSeeder extends Seeder
     {
 
         $jsonPaths = Storage::get('worldPaths.json');
-      /*   $jsonPaths = json_decode($jsonPaths, true);
+        $array = json_decode($jsonPaths, true);
 
-
-        foreach ($jsonPaths as $path) {
-            # code...
-        } */
-
-        $newPath = new Path([
-            'title' => '1',
-            'code' => '2',
-            'path' => $jsonPaths 
-        ]);
-        $newPath->save();
+        foreach ($array as $path) {
+            $newPath = new Path([
+                'title' => $path['title'],
+                'code' => $path['id'],
+                'path' => $path['d']
+            ]);
+            $newPath->save();
+        }
 
         /*  foreach ($paths as $path) {
         $newPath = new Path([
@@ -41,5 +38,5 @@ class PathsTableSeeder extends Seeder
         ]);
         $newPath->save();
         } */
-   } 
+    }
 }

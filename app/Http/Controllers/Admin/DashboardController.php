@@ -22,17 +22,7 @@ class DashboardController extends Controller
   {
     $user = Auth::user();
     if ($user->is_superadmin == true) {
-      $jsonPaths = Storage::get('worldPaths.json');
-      $array= json_decode($jsonPaths, true);
-
-      foreach ($array as $path) {
-        $newPath = new Path([
-          'title' => $path['title'],
-          'code' => $path['id'],
-          'path' => $path['d']
-        ]);
-        $newPath->save();
-      }
+    
      
       $continents=Continent::all();
       $countries=Country::all();
@@ -40,7 +30,7 @@ class DashboardController extends Controller
       $cities=City::all();
 
       /* posso mostrare una view diversa */
-      return view('admin.dashboard', compact('jsonPaths','array'));
+      return view('admin.dashboard');
     } else {
       /* posso mostrare una view diversa */
       return view('user.dashboard');
