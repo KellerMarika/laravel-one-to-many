@@ -41,7 +41,6 @@ class PathController extends Controller
         //array
 
         let paths_List = [];
-      
         svg_paths.forEach(path => {
 
             let path_El = {}

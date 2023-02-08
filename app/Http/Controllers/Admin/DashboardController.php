@@ -22,15 +22,15 @@ class DashboardController extends Controller
   {
     $user = Auth::user();
     if ($user->is_superadmin == true) {
-    
-     
+
+      $svgPaths = Path::all();    
       $continents=Continent::all();
       $countries=Country::all();
       $regions=Region::all();
       $cities=City::all();
 
       /* posso mostrare una view diversa */
-      return view('admin.dashboard');
+      return view('admin.dashboard', compact('svgPaths'));
     } else {
       /* posso mostrare una view diversa */
       return view('user.dashboard');
