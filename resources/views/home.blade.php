@@ -1,12 +1,13 @@
 @extends('layouts.app')
 
 @php
-  $title = 'MarikaKeller.dev HOME';
+    $title = 'MarikaKeller.dev HOME';
 @endphp
 
 @section('title', $title)
 
 @section('content')
+
     <div class="container text-end">
         @guest
             <h1>non sei nessuno</h1>
@@ -27,4 +28,3 @@
     @include('profile.partials.jumbotron')
 
 @endsection
-        

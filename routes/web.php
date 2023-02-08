@@ -2,9 +2,18 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\DashboardController;
+
 use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\TypeController;
 use App\Http\Controllers\Admin\LevelController;
+
+/* MAP */
+use App\Http\Controllers\Admin\ContinentController;
+use App\Http\Controllers\Admin\CountryController;
+use App\Http\Controllers\Admin\RegionController;
+use App\Http\Controllers\Admin\CityController;
+
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,19 +35,25 @@ Route::get('/', function () {
 /* pagina privata visibile solo se utente autenticato, per questo personalizzo percorso*/
 
 Route::middleware(['auth', 'verified'])
-->prefix('admin')
-->name('admin.')->
-group(function () {
+    ->prefix('admin')
+    ->name('admin.')->
+    group(function () {
 
-    Route::get('/', [DashboardController::class, 'home'])->name('dashboard');
-    
-  /*Route::get('/users', [DashboardController::class, 'users'])->name('users'); */
+        Route::get('/', [DashboardController::class, 'home'])->name('dashboard');
 
-  /* tutte le rotte progetti vengono gestite tramite amministratore */
-    Route::resource('projects', ProjectController::class);
-    Route::resource('types', TypeController::class);
-    Route::resource('levels', LevelController::class);
-});
+        /*Route::get('/users', [DashboardController::class, 'users'])->name('users'); */
+
+        /* tutte le rotte progetti vengono gestite tramite amministratore */
+        Route::resource('projects', ProjectController::class);
+        Route::resource('types', TypeController::class);
+        Route::resource('levels', LevelController::class);
+
+        /* MAP */
+        Route::resource('continents', ContinentController::class);
+        Route::resource('countries', CountryController::class);
+        Route::resource('regions', RegionController::class);
+        Route::resource('cities', CityController::class);
+    });
 
 
 
