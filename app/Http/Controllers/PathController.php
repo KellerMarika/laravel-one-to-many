@@ -15,8 +15,10 @@ class PathController extends Controller
     {
         /* multiple try **************************************************/
         $paths = $request->json()->all();
+        
+        echo count($paths); //ne passa 250 ma n eprocessa max 37
         $i = 0;
-        foreach ($paths as $path) {
+     /*    foreach ($paths as $path) {
             $i++;
     
                 $newPath = new Path([
@@ -25,8 +27,7 @@ class PathController extends Controller
                     'path' => $path['d']
                 ]);
                 $newPath->save(); 
-        }
-
+        } */
         /* ORO**************************************************/
         /*       $path = $request->json()->all();
         $newPath = new Path([
