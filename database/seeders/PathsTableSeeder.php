@@ -30,13 +30,5 @@ class PathsTableSeeder extends Seeder
             $newPath->save();
         }
 
-        /*  foreach ($paths as $path) {
-        $newPath = new Path([
-        'title' => $path['title'],
-        'code' => $path['id'],
-        'path' => $path['d']
-        ]);
-        $newPath->save();
-        } */
     }
 }
