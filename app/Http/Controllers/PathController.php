@@ -18,7 +18,7 @@ class PathController extends Controller
         $i = 0;
         foreach ($paths as $path) {
             $i++;
-            if ($i===1){
+           /*  if ($i===1){ */
 
                 /* li vedo correttamente è la creazione della classe che non va */
                /*  echo $path['title'];
@@ -30,9 +30,9 @@ class PathController extends Controller
                     'path' => $path['d']
                 ]);
                 $newPath->save(); 
-                echo $newPath
+              /*   echo $newPath */
 
-            }
+         /*    } */
             
            /*  $newPath = new Path([
                 'title' => $path['title'],
