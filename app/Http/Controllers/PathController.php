@@ -13,18 +13,56 @@ class PathController extends Controller
 
     public function uploadWorldMap(Request $request)
     {
+        /* multiple try **************************************************/
+        $paths = $request->json()->all();
+        $i = 0;
+        foreach ($paths as $path) {
+            $i++;
+            if ($i===1){
+
+                /* li vedo correttamente è la creazione della classe che non va */
+               /*  echo $path['title'];
+                echo $path['id'];
+                echo $path['d']; */
+                $newPath = new Path([
+                    'title' => $path['title'],
+                    'code' => $path['id'],
+                    'path' => $path['d']
+                ]);
+                $newPath->save(); 
+                echo $newPath
+
+            }
+            
+           /*  $newPath = new Path([
+                'title' => $path['title'],
+                'code' => $path['id'],
+                'path' => $path['d']
+            ]);
+            $newPath->save(); */
+            # code...
 
 
-        /*       $path = json_decode($request, true); */
-        $path = $request->json()->all();
-        /* sto passando un oggetto invece di un array */
-        $newPath = new Path([
-            'title' => $path['title'],
-            'code' => $path['id'],
-            'path' => $path['d']
+        }
+        /*  $newPath = new Path([
+        'title' => $path['title'],
+        'code' => $path['id'],
+        'path' => $path['d']
         ]);
-        $newPath->save();
+        $newPath->save(); */
 
+        /***************************************************/
+
+        /* ORO**************************************************/
+        /*       $path = $request->json()->all();
+        $newPath = new Path([
+        'title' => $path['title'],
+        'code' => $path['id'],
+        'path' => $path['d']
+        ]);
+        $newPath->save(); */
+
+        /***************************************************/
 
         /* foreach ($paths_a as $path) {
         $newPath = new Path([
@@ -41,20 +79,6 @@ class PathController extends Controller
         'path' => $paths_a['d']
         ]);
         $newPath->save(); */
-
-
-
-
-
-        /*$paths_a = $request->json()->all() valore 0 dell'array  */
-        /*    $newPath = new Path([
-        'title' => $paths_a['title'],
-        'code' => $paths_a['id'],
-        'path' => $paths_a['d']
-        ]);
-        $newPath->save(); */
-        /*  } */
-
 
 
     }
