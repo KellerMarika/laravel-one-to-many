@@ -8,9 +8,11 @@ use App\Models\Continent;
 use App\Models\Country;
 use App\Models\Region;
 use App\Models\City;
-
+use App\Models\Path;
+use GuzzleHttp\Promise\Create;
 use Illuminate\Http\Request;
 use illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 /* INTERFACCIA PRIVATA LOGGATO */
 class DashboardController extends Controller
@@ -20,7 +22,8 @@ class DashboardController extends Controller
   {
     $user = Auth::user();
     if ($user->is_superadmin == true) {
-
+    
+     
       $continents=Continent::all();
       $countries=Country::all();
       $regions=Region::all();
