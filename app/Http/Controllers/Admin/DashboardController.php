@@ -18,8 +18,10 @@ use Illuminate\Support\Facades\Storage;
 class DashboardController extends Controller
 {
 
-  public function home()
+  public function home(Request $request) 
   {
+
+    $request=$request->ip();
     $user = Auth::user();
     if ($user->is_superadmin == true) {
 
@@ -30,7 +32,7 @@ class DashboardController extends Controller
       $cities=City::all();
 
       /* posso mostrare una view diversa */
-      return view('admin.dashboard', compact('svgPaths'));
+      return view('admin.dashboard', compact('svgPaths','continents','request'));
     } else {
       /* posso mostrare una view diversa */
       return view('user.dashboard');
