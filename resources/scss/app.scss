@@ -236,19 +236,21 @@ nav {
 }
 
 /***** MAP *******/
-svg {
-  /*  transform: scale(180%); */
+
+.world-map {
+
+   /*  transform: scale(180%); */
+   path {
+
+      fill: rgb(84, 84, 134);
+
+      &:hover {
+
+         fill: rgb(212, 171, 95);
+      }
+   }
 }
 
-svg path {
-
-   fill: rgb(84, 84, 134);
-}
-
-svg path:hover {
-
-   fill: rgb(212, 171, 95);
-}
 
 /***** FOOTER ******/
 
