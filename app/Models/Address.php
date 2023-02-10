@@ -7,5 +7,20 @@ use Illuminate\Database\Eloquent\Model;
 
 class Address extends Model
 {
-    use HasFactory;
+    protected $fillable = [
+        'route_name',
+        'route_number',
+        'city_name',
+        'zip_code',
+        'country_name',
+        'country_code'
+        /* country_id
+        city_id
+        request_ip_id */
+    ];
+    
+    public function userDetail()
+    {
+        return $this->hasOne(UserDetail::class);
+    }
 }
