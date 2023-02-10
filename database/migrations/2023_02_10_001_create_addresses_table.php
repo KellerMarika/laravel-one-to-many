@@ -23,11 +23,17 @@ return new class extends Migration {
             $table->string('country_code')->nullable();
 
 
-        /* upgrade per ip address stat
-        
-        $table->unsignedBigInteger('request_id')->nullable();
-            $table->foreign('request_id')->references('id')->on('requestes'); */
-
+            /* upgrade per ip address stat
+            
+            $table->unsignedBigInteger('request_id')->nullable();
+            $table->foreign('request_id')->references('id')->on('requestes'); 
+            
+            $table->unsignedBigInteger('city_id')->nullable();
+            $table->foreign('city_id')->references('id')->on('cities'); 
+            
+            $table->unsignedBigInteger('country_id')->nullable();
+            $table->foreign('country_id')->references('id')->on('countries');
+            */
             $table->timestamps();
         });
     }
