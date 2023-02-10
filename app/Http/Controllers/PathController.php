@@ -22,14 +22,14 @@ class PathController extends Controller
 
         $StoredPath = Storage::put("worldPaths.json", json_encode($paths));
 
-        foreach ($paths as $path) {
+      /*   foreach ($paths as $path) {
             $newPath = new Path([
                 'title' => $path['title'],
                 'code' => $path['id'],
                 'path' => $path['d']
             ]);
             $newPath->save();
-        }
+        } */
     }
 }
 
