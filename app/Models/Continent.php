@@ -9,9 +9,15 @@ use Illuminate\Database\Eloquent\Model;
 class Continent extends Model
 {
     use HasFactory;
+    protected $fillable = [
 
+        'name',
+        'code',
+        'area',//to drop
+        'coordinates_id',
+    ];
     public function coordinates(){
-       return $this->belongsTo(Coordinates::class); 
+    return $this->belongsTo(Coordinates::class); 
     }
     public function countries(){
         return  $this->hasMany(Country::class); 

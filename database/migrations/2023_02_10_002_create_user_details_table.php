@@ -20,6 +20,9 @@ return new class extends Migration
             $table->enum('gender', array('female','male'));
 
             
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->foreign('user_id')->references('id')->on('users');
+
             $table->unsignedBigInteger('address_id')->nullable();
             $table->foreign('address_id')->references('id')->on('addresses');
 

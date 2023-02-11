@@ -8,6 +8,23 @@ use Illuminate\Database\Eloquent\Model;
 class Country extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'name',
+        'official_name', //to drop
+        'code_two', 
+        'code_three', 
+        'flag', 
+        'continent_id', 
+        'coordinates_id', 
+        'capital_id',
+        'path_id',
+
+    ];
+    
+    public function path()
+    {
+        return $this->belongsTo(Paths::class);
+    }
     public function coordinates()
     {
         return $this->belongsTo(Coordinates::class);
