@@ -17,6 +17,7 @@ class Country extends Model
         'continent_id', 
         'coordinates_id', 
         'capital_id',
+        'path_id',
 
     ];
     

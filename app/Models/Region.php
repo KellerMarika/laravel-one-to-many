@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Region extends Model
 {
     use HasFactory;
-    capital_id
+
     public function coordinates()
     {
         return $this->belongsTo(Coordinates::class);

@@ -11,15 +11,16 @@ class Project extends Model
     use HasFactory;
     protected $fillable = [
 
-        'type_id',
-        'level_id',
-        /*        'languages_id', */
-
         'title',
         'completed',
         'cover_img',
         'description',
         'github_link',
+
+        'type_id',
+        'level_id',
+        /*        'languages_id', */
+        'user_id',
     ];
 
 
@@ -30,6 +31,11 @@ class Project extends Model
     public function level()
     {
         return $this->belongsTo(Level::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 
 
