@@ -20,13 +20,9 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'surname',
-        'birth_date',
         'email',
         'password',
-        'profile_img',
-        'cover_img',
-        'primary_color',
-        'secondary_color',
+        
     ];
 
     /**
@@ -47,4 +43,25 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function userDetail()
+    {
+        return $this->hasOne(UserDetail::class);
+    }
+    public function account()
+    {
+        return $this->hasOne(Account::class);
+    }
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
+    public function votes()
+    {
+        return $this->hasMany(Vote::class);
+    }
+    public function projects()
+    {
+        return $this->hasMany(Project::class);
+    }
 }

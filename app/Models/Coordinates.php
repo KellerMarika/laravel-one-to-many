@@ -8,6 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Coordinates extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'lat',
+        'lng', 
+    ];
+    
     public function  continent(){
         return $this->hasOne(Continet::class);
     }

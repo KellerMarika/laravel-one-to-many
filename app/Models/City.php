@@ -8,6 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class City extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+
+        'nome',
+        'zip_code',
+        'population',//to drop
+
+        'region_id',
+        'coordinates_id',
+    ];
     public function coordinates()
     {
         return $this->belongsTo(Coordinates::class);
