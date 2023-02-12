@@ -17,7 +17,7 @@ class Path extends Model
         'path',
     ];
     public function  continent(){
-        return $this->hasOne(Continet::class);
+        return $this->hasOne(Continet::class,'path_code','code');
     }
 /*     protected function data(): Attribute
     {
