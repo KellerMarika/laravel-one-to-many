@@ -13,9 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('countries', function (Blueprint $table) {
-            $table->unsignedBigInteger('path_id')->nullable()->after('coordinates_id');
-            $table->foreign('path_id')->references('id')->on('paths');
+        Schema::table('paths', function (Blueprint $table) {
+ /*            $table->string("title")->unique()->change(); */
+          /*   $table->string("code")->unique()->change(); */
+            $table->unique('code', 'paths_code_unique');
         });
     }
 
@@ -26,9 +27,9 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('countries', function (Blueprint $table) {
-            $table->dropForeign("countries_path_id_foreign");
-            $table->dropColumn("path_id");
+        Schema::table('paths', function (Blueprint $table) {
+         /*    $table->string("title")->nullable()->change(); */
+         $table->dropUnique('paths_code_unique');
         });
     }
 };

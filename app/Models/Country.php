@@ -16,14 +16,13 @@ class Country extends Model
         'flag', 
         'continent_id', 
         'coordinates_id', 
-        'capital_id',
-        'path_id',
+        'path_code',
 
     ];
     
-    public function path()
+    public function pathCode()
     {
-        return $this->belongsTo(Paths::class);
+        return $this->belongsTo(Paths::class, 'path_code', 'code');
     }
     public function coordinates()
     {
