@@ -2,11 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\Language;
+use App\Models\Tecnology;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class LanguageTableSeeder extends Seeder
+class TecnologyTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,19 +15,21 @@ class LanguageTableSeeder extends Seeder
      */
     public function run()
     {
-        $languages = [
+        $tecnologies = [
             'html',
             'css',
             'sass',
             'javascript',
-            'php'
+            'Vue JS',
+            'MySQL',
+            'php',
+            'laravel'
         ];
 
-        foreach ($languages as $language) {
-            Language::create([
-                'name'=> $language
+        foreach ($tecnologies as $tecnology) {
+            tecnology::create([
+                'name'=> $tecnology
             ]);
-            # code...
         }
     }
 }

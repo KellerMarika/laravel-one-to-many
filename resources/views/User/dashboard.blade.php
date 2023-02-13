@@ -3,7 +3,7 @@
 @extends('layouts.dashboard')
 
 @section('content')
-    <div class="dashboard-container d-flex">
+    <div class="dashboard-container d-flex justify-content-end">
     
             @include('profile.partials.dashboard.aside')
      
