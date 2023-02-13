@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 
+use App\Models\Account;
 use App\Models\Continent;
 use App\Models\Country;
 use App\Models\Region;
@@ -18,26 +19,35 @@ use Illuminate\Support\Facades\Storage;
 class DashboardController extends Controller
 {
 
-  public function home(Request $request) 
+  public function home(Request $request)
   {
 
-    $request=$request->ip();
+    $request = $request->ip();
+
+
     $user = Auth::user();
     if ($user->is_superadmin == true) {
 
-      $svgPaths = Path::all();    
-      $continents=Continent::all();
-      $countries=Country::all();
-      $regions=Region::all();
-      $cities=City::all();
 
-      /* posso mostrare una view diversa */
-      return view('admin.dashboard', compact('svgPaths','continents','request'));
+      $account = Account::all();
+
+
+
+      $svgPaths = Path::all();
+      $continents = Continent::all();
+      $countries = Country::all();
+      $regions = Region::all();
+      $cities = City::all();
+
+      /* passo dati diversi alla stessa view a seconda che sia superadmin o no*/
+      return view('user.dashboard', compact('svgPaths', 'continents', 'request','user'));
     } else {
-      /* posso mostrare una view diversa */
-      return view('user.dashboard');
-
+      /* passo dati diversi alla stessa view a seconda che sia superadmin o no*/
+      return view('user.dashboard', compact('user'));
     }
-    
+
   }
+
+/*** ACCOUNT **************************************************/
+
 }

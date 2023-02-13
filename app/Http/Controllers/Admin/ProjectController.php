@@ -30,9 +30,7 @@ class ProjectController extends Controller
         $levels = Level::all();
         $types = Type::all();
 
-
         return view('admin.projects.index', compact("projects", 'levels','types'));
-
 
     }
 

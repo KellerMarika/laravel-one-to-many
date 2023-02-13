@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\AccountController;
+use App\Http\Controllers\Admin\AddressController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\DashboardController;
 
@@ -12,8 +14,9 @@ use App\Http\Controllers\Admin\ContinentController;
 use App\Http\Controllers\Admin\CountryController;
 use App\Http\Controllers\Admin\RegionController;
 use App\Http\Controllers\Admin\CityController;
-
-
+use App\Http\Controllers\Admin\PostController;
+use App\Http\Controllers\Admin\UserDetailController;
+use App\Http\Controllers\Admin\VoteController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -47,6 +50,13 @@ Route::middleware(['auth', 'verified'])
         Route::resource('projects', ProjectController::class);
         Route::resource('types', TypeController::class);
         Route::resource('levels', LevelController::class);
+
+        /* rotte lato utente */
+        Route::resource('accounts', AccountController::class);
+        Route::resource('addresses', AddressController::class);
+        Route::resource('posts', PostController::class);
+        Route::resource('votes', VoteController::class);
+        Route::resource('userDetails', UserDetailController::class);
 
         /* MAP */
         Route::resource('continents', ContinentController::class);
