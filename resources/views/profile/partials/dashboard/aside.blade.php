@@ -15,11 +15,11 @@
                     <span class="title d-block p-relative ps-3">Home</span>
                 </a>
             </li> --}}
-            <li class="{{ !$user->is_superadmin ? 'active' : '' }}  list w-100  d-block">
+            <li id="profile" class="{{ !$user->is_superadmin ? 'active' : '' }}  list w-100  d-block">
                 <b></b>
                 <b></b>
                 <a class="p-relative w-100 text-decoration-none " href="#">
-                    <span class="icon text-cemter pt-2 d-block ">
+                    <span  class="icon text-cemter pt-2 d-block ">
                         <ion-icon class="fs-3" name="person-outline"></ion-icon>
                     </span>
                     <span class="title d-block p-relative ps-3">Profile</span>
@@ -27,7 +27,7 @@
             </li>
 
             @if ($user->is_superadmin)
-                <li class="list active w-100 d-block">
+                <li id="admin-dashboard"  class="list active w-100 d-block">
                     <b></b>
                     <b></b>
                     <a class="p-relative w-100 text-decoration-none " href="#">
@@ -38,10 +38,10 @@
                     </a>
                 </li>
 
-                <li class="list w-100 ">
+                <li id="projects" class="list w-100 ">
                     <b></b>
                     <b></b>
-                    <a class="p-relative w-100 text-decoration-none " href="#">
+                    <a  class="p-relative w-100 text-decoration-none " href="#">
                         <span class="icon text-cemter pt-2 d-block">
                             <ion-icon class="fs-3" name="images-outline"></ion-icon>
                         </span>
@@ -50,7 +50,7 @@
                 </li>
             @endif
 
-            <li class="list w-100 ">
+            <li id="messages"  class="list w-100 ">
                 <b></b>
                 <b></b>
                 <a class="p-relative w-100 text-decoration-none " href="#">
@@ -61,15 +61,14 @@
                 </a>
             </li>
 
-
-            <li class="list w-100  ">
+            <li id="setting" class="list w-100  ">
                 <b></b>
                 <b></b>
-                <a class="p-relative w-100 text-decoration-none " href="#">
+                <a  class="p-relative w-100 text-decoration-none " href="#">
                     <span class="icon text-cemter pt-2 d-block">
                         <ion-icon class="fs-3" name="settings-outline"></ion-icon>
                     </span>
-                    <span class="title d-block p-relative ps-3">Services</span>
+                    <span class="title d-block p-relative ps-3">setting</span>
                 </a>
             </li>
         </ul>
@@ -87,14 +86,22 @@
     <script type="text/javascript">
         let menuToggle = document.querySelector('.toggle')
         let Navigation = document.querySelector('.navigation')
+
+        let active_Section
         menuToggle.onclick = function() {
             menuToggle.classList.toggle('active')
             Navigation.classList.toggle('active')
+
         }
 
         let list = document.querySelectorAll('.list');
+
         for (let i = 0; i < list.length; i++) {
-            list[i].onclick = function() {
+            list[i].onclick = function(e) {
+                console.log(e);
+                console.log(e.srcElement.id);
+                console.log(e.target);
+                console.log(e.target.parentElement.id);
                 let j = 0;
                 while (j < list.length) {
                     list[j++].className = 'list'
