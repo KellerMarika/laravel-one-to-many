@@ -5,7 +5,7 @@
 
             {{-- HOME NO --}}
 
-            {{--      <li class="list w-100 ">
+                 <li class="list w-100 ">
                 <b></b>
                 <b></b>
                 <a class="p-relative w-100 text-decoration-none " href="#">
@@ -14,7 +14,7 @@
                     </span>
                     <span class="title d-block p-relative ps-3">Home</span>
                 </a>
-            </li> --}}
+            </li> 
             <li id="profile" class="{{ !$user->is_superadmin ? 'active' : '' }}  list w-100  d-block">
                 <b></b>
                 <b></b>
