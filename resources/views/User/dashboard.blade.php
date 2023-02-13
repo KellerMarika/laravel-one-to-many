@@ -3,5 +3,12 @@
 @extends('layouts.dashboard')
 
 @section('content')
-    <h5>USER DASHBOARD {{ Auth::user()->name }}</h5>
+    <div class="dashboard-container d-flex">
+    
+            @include('profile.partials.dashboard.aside')
+     
+
+
+        @include('profile.partials.dashboard.main')
+    </div>
 @endsection

@@ -49,6 +49,9 @@ class Project extends Model
     {
         return $this->hasMany(Vote::class);
     }
-
+    public function languages()
+    {
+        return $this->belongsToMany(Language::class);
+    }
 
 }
