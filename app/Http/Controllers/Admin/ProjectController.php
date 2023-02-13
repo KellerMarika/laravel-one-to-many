@@ -31,7 +31,7 @@ class ProjectController extends Controller
         $types = Type::all();
 
 
-        return view('admin.projects.index', compact("projects", 'levels','types'));
+        return view('admin.projects.index', compact("projects", 'levels', 'types'));
 
 
     }
@@ -46,7 +46,7 @@ class ProjectController extends Controller
         $levels = Level::all();
         $types = Type::all();
 
-        return view('admin.projects.create',compact('levels','types'));
+        return view('admin.projects.create', compact('levels', 'types'));
     }
 
     /**
@@ -105,7 +105,7 @@ class ProjectController extends Controller
     {
         $levels = Level::all();
         $types = Type::all();
-        return view("admin.projects.edit", compact("project", "levels","types"));
+        return view("admin.projects.edit", compact("project", "levels", "types"));
     }
 
     /**
@@ -121,9 +121,7 @@ class ProjectController extends Controller
         $data = $request->validated();
 
         if (key_exists("cover_img", $data)) {
-
             $path = Storage::put("projects", $data["cover_img"]);
-
             Storage::delete($project->cover_img);
         }
 
@@ -134,9 +132,12 @@ class ProjectController extends Controller
         ]);
 
         return redirect()->route('admin.projects.show', $project->id); /* ->with([
-        'status'=>'success',
-        'message'=>'hai creato un nuovo progetto: #'. $project->id
+           'status'=>'success',
+           'message'=>'hai creato un nuovo progetto: #'. $project->id
            ]) */
+
+           /* quando aggiorno */
+        $project->languages()->attach($data['tags']);
     }
 
     /**

@@ -33,11 +33,13 @@ class StoreProjectRequest extends FormRequest
             'title' => 'required|max:80',
             'type_id' => 'exists:types,id',
             'level_id' => 'exists:levels,id',
-     /*        'languages_id' => 'required|max:225', */
+
             'completed' => 'required|boolean',
             'cover_img' => 'image|max:1024',
             'description' => 'string',
-            'github_link'=>'string'
+            'github_link' => 'string',
+            /*  */
+            'languages' => 'exists:languages,id|array'
         ];
     }
 }
