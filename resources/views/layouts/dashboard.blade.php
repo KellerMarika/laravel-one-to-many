@@ -19,7 +19,7 @@
     @vite(['resources/js/app.js'])
 </head>
 
-<body class=" bg-secondary{{-- {{ Auth::user() ? 'bg-success' : 'bg-danger' }} --}}">
+<body class=" dashboard-container bg-secondary{{-- {{ Auth::user() ? 'bg-success' : 'bg-danger' }} --}}">
 
     <div id="app" class="">
 
